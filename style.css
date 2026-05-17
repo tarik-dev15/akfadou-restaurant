@@ -1,0 +1,821 @@
+/* ===================================================== */
+/* RESET */
+/* ===================================================== */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===================================================== */
+/* VARIABLES */
+/* ===================================================== */
+
+:root {
+    /* Couleurs luxe */
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --black: #0A0806;
+    --smoke: #F4EFE8;
+    --text-muted: #8C7F6E;
+
+    /* Polices */
+    --serif: 'Cormorant Garamond', serif;
+    --sans: 'Jost', sans-serif;
+}
+
+/* ===================================================== */
+/* GLOBAL */
+/* ===================================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--black);
+    color: var(--smoke);
+    font-family: var(--sans);
+    overflow-x: hidden;
+}
+
+/* ===================================================== */
+/* BOUTON FLOTTANT (GAUCHE BAS) */
+/* ===================================================== */
+
+.floating-cta {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+}
+
+.floating-cta a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--black);
+    text-decoration: none;
+    padding: 14px 22px;
+    border-radius: 50px;
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.50);
+    transition: 0.3s ease;
+}
+
+.floating-cta a:hover {
+    background: var(--gold-light);
+    transform: translateY(-4px);
+}
+
+/* ===================================================== */
+/* HERO SECTION (IMAGE FULLSCREEN) */
+/* ===================================================== */
+
+.hero {
+    position: relative;
+    padding-top: 20px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Image de fond HERO */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.90)),
+        url("hall_akfadou.jpg");
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.05);
+}
+
+/* Contenu HERO */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+}
+
+.hero-eyebrow {
+    color: var(--gold);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-family: var(--serif);
+    font-size: clamp(4rem, 8vw, 7rem);
+    color: var(--smoke);
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-family: var(--serif);
+    font-style: italic;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 40px;
+}
+
+/* Bouton HERO */
+.hero-btn {
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    padding: 15px 35px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+}
+
+.hero-btn:hover {
+    background: var(--gold);
+    color: var(--black);
+}
+
+/* ===================================================== */
+/* SECTION NOTRE HISTOIRE */
+/* ===================================================== */
+
+.story {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px;
+    overflow: hidden;
+}
+
+.story::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)),
+        url("restaurant_akfadou.jpg");
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.05);
+    z-index: 0;
+}
+
+.story-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.section-label {
+    color: var(--gold);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    margin-bottom: 15px;
+}
+
+.section-title {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.section-title em {
+    color: var(--gold-light);
+    font-style: italic;
+}
+
+.story-body {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    line-height: 1.9rem;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 40px;
+}
+
+.story-features {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    text-align: center;
+}
+
+.feature-number {
+    font-size: 4.2rem;
+    color: var(--gold);
+    font-family: var(--serif);
+}
+
+.feature-label {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+/* ===================================================== */
+/* GALERIE */
+/* ===================================================== */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 5px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.gallery-item:hover .gallery-item-overlay {
+    opacity: 1;
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: var(--gold-light);
+    font-family: var(--serif);
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.gallery-item:hover .gallery-caption {
+    opacity: 1;
+}
+
+/* ===================================================== */
+/* RESERVATION */
+/* ===================================================== */
+
+.res-subtitle {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.hero-scroll span {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    display: block;
+    margin-bottom: 10px;
+    transition: 0.3s ease;
+}
+
+.hero-scroll:hover span {
+    color: var(--gold);
+    transform: translateY(-2px);
+}
+
+.reservation-block {
+    text-align: center;
+    padding: 100px 20px;
+    background: var(--black);
+}
+
+.res-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--gold);
+    padding: 18px 40px;
+    color: var(--gold-light);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+}
+
+.res-btn:hover {
+    background: var(--gold);
+    color: var(--black);
+}
+
+/* ===================================================== */
+/* FOOTER */
+/* ===================================================== */
+
+.footer-text {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    font-style: italic;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 600px;
+    margin: 15px auto 35px auto;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.footer {
+    background: #111;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.footer-name {
+    font-family: var(--serif);
+    font-size: 5rem;
+    color: var(--gold-light);
+    margin-bottom: 20px;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.footer-socials a {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    transition: 0.3s ease;
+}
+
+.footer-socials a:hover {
+    background: var(--gold);
+    color: var(--black);
+}
+
+.footer-copy {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+}
+
+/* ===================================================== */
+/* MENU RESTAURANT — SECTION INDEX */
+/* ===================================================== */
+
+.menu-categorie {
+    padding: 100px 20px;
+    background: var(--black);
+    text-align: center;
+}
+
+.menu-titre {
+    font-family: var(--serif);
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+/* Grille des items du menu (index.html) */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto 60px auto;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    border-radius: 10px;
+    transition: 0.3s ease;
+    text-align: left;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.menu-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.menu-content h3 {
+    font-family: var(--serif);
+    color: var(--gold-light);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.menu-content p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* ===================================================== */
+/* BLOC ACCES QR CODE — intégré dans la section menu     */
+/* ===================================================== */
+
+.qr-access-block {
+    margin: 0 auto;
+    max-width: 480px;
+    padding: 40px 30px;
+    border: 1px solid rgba(201, 168, 76, 0.4);
+    border-radius: 12px;
+    text-align: center;
+    background: rgba(201, 168, 76, 0.04);
+    transition: 0.3s ease;
+}
+
+.qr-access-block:hover {
+    border-color: var(--gold);
+    background: rgba(201, 168, 76, 0.08);
+}
+
+.qr-access-label {
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.qr-access-title {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--smoke);
+    margin-bottom: 10px;
+}
+
+.qr-access-sub {
+    font-family: var(--serif);
+    font-style: italic;
+    color: rgba(255,255,255,0.55);
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+/* Image du QR code */
+.qr-code-img {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 20px auto;
+    display: block;
+    border: 2px solid rgba(201, 168, 76, 0.5);
+    border-radius: 8px;
+    padding: 8px;
+    background: #fff; /* fond blanc pour lisibilité du QR */
+}
+
+.qr-access-btn {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    padding: 14px 32px;
+    color: var(--gold-light);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    transition: 0.3s ease;
+    border-radius: 2px;
+}
+
+.qr-access-btn:hover {
+    background: var(--gold);
+    color: var(--black);
+}
+
+/* ===================================================== */
+/* DIVIDER DÉCORATIF (réutilisable) */
+/* ===================================================== */
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px auto 30px auto;
+    max-width: 300px;
+}
+
+.divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+}
+
+.divider-diamond {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+}
+
+/* ===================================================== */
+/* PAGE MENU QR CODE (menu-qrcode.html) */
+/* ===================================================== */
+
+/* Header minimal de la page menu digital */
+.menu-page-header {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: var(--black);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+.menu-page-logo {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--gold-light);
+    font-weight: 300;
+    letter-spacing: 4px;
+}
+
+.menu-page-tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    color: rgba(255,255,255,0.5);
+    margin-top: 8px;
+    font-size: 1rem;
+}
+
+/* Navigation par catégorie (ancres) */
+.menu-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 25px 20px;
+    background: rgba(201, 168, 76, 0.05);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.menu-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    transition: 0.3s ease;
+}
+
+.menu-nav a:hover,
+.menu-nav a.active {
+    color: var(--gold);
+    border-color: rgba(201, 168, 76, 0.4);
+}
+
+/* Section catégorie du menu digital */
+.menu-section {
+    padding: 70px 20px 50px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.menu-section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.menu-section-label {
+    font-size: 0.7rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.menu-section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--smoke);
+}
+
+.menu-section-title em {
+    color: var(--gold-light);
+    font-style: italic;
+}
+
+/* Ligne séparatrice entre sections */
+.menu-section-divider {
+    border: none;
+    border-top: 1px solid rgba(201, 168, 76, 0.2);
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+/* Carte d'un plat (menu digital) */
+.dish-card {
+    display: grid;
+    grid-template-columns: 110px 1fr auto;
+    align-items: center;
+    gap: 20px;
+    padding: 22px;
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    border-radius: 10px;
+    margin-bottom: 16px;
+    transition: 0.3s ease;
+    background: rgba(255,255,255,0.01);
+}
+
+.dish-card:hover {
+    border-color: var(--gold);
+    background: rgba(201, 168, 76, 0.04);
+    transform: translateY(-3px);
+}
+
+.dish-card img {
+    width: 110px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Nom et description du plat */
+.dish-info h3 {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    color: var(--gold-light);
+    margin-bottom: 6px;
+    font-weight: 400;
+}
+
+.dish-info p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* Badge allergènes */
+.dish-tags {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.dish-tag {
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    border-radius: 20px;
+    color: var(--text-muted);
+}
+
+/* Prix */
+.dish-price {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    color: var(--gold);
+    white-space: nowrap;
+    text-align: right;
+}
+
+/* Footer de la page menu digital */
+.menu-footer {
+    text-align: center;
+    padding: 50px 20px;
+    border-top: 1px solid rgba(201, 168, 76, 0.2);
+    background: #111;
+}
+
+.menu-footer-name {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    color: var(--gold-light);
+    margin-bottom: 10px;
+}
+
+.menu-footer-info {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.35);
+    line-height: 2;
+}
+
+/* Bouton retour accueil */
+.back-home-btn {
+    display: inline-block;
+    margin-top: 25px;
+    border: 1px solid rgba(201, 168, 76, 0.4);
+    padding: 12px 28px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.back-home-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+/* ===================================================== */
+/* RESPONSIVE */
+/* ===================================================== */
+
+@media (max-width: 768px) {
+    .story-features {
+        gap: 25px;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    /* Menu digital : carte plat en colonne sur mobile */
+    .dish-card {
+        grid-template-columns: 80px 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .dish-price {
+        grid-column: 2;
+        text-align: left;
+        font-size: 1.1rem;
+        margin-top: 4px;
+    }
+
+    .dish-card img {
+        width: 80px;
+        height: 75px;
+        grid-row: 1 / 3;
+        align-self: start;
+    }
+
+    .menu-nav {
+        gap: 6px;
+        padding: 15px 10px;
+    }
+
+    .menu-nav a {
+        font-size: 0.62rem;
+        padding: 6px 12px;
+    }
+}
